@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "gimei": [
+        "./src"
+      ],
+      "gimei/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "./dist"
+  ]
+}
