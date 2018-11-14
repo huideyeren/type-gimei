@@ -1,5 +1,7 @@
 import * as yaml from 'js-yaml';
 
-export class Gimei {
-
-}
+export const Gimei = {
+  name: () => {
+    return "mytest";
+  }
+};
