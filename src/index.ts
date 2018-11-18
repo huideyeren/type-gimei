@@ -1,1 +1,1 @@
-export { Gimei } from './gimei'
+export { Gimei, Random } from './gimei'
