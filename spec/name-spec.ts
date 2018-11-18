@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Gimei, Random } from "gimei";
+import { Gimei } from "gimei";
 
 describe("sample", () => {
   it("sample01", () => {
@@ -7,19 +7,19 @@ describe("sample", () => {
   });
 
   it("sample02", () => {
-    const gimei = Gimei.randomName();
+    const gimei = Gimei.randomName(Gimei.GENDER.male);
     // console.log(gimei);
     // console.log(gimei.foo);
   });
 
   it("random", () => {
-    const random = new Random(1);
-    for (let i = 0; i < 10; i++) {
-      // const val = random.next();
-      const val = random.nextInt(0, 9);
-      // console.log(val);
-    }
+    // const random = new Random(1);
+    // for (let i = 0; i < 10; i++) {
+    //   // const val = random.next();
+    //   const val = random.nextInt(0, 9);
+    //   // console.log(val);
+    // }
   });
-  
+
 
 });

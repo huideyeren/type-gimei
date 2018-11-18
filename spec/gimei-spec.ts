@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Gimei, Random } from 'gimei';
+import { Gimei } from 'gimei';
 
 describe('Gimei', () => {
   it('sample01', () => {

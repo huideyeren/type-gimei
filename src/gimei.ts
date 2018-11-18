@@ -2,7 +2,7 @@ import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import * as path from 'path';
 
-enum GENDER { male, female }
+export enum GENDER { male, female }
 
 export class Gimei {
   static get NAMES() {
@@ -11,11 +11,15 @@ export class Gimei {
     return names;
   }
 
+  static get GENDER() {
+    return GENDER;
+  }
+
   constructor() {
   }
 
-  static randomName() {
-    return new Name();
+  static randomName(gender: number | undefined) {
+    return new Name(gender);
   }
 
   static randomMale() {
@@ -28,14 +32,14 @@ export class Gimei {
 }
 
 class Name {
-  foo: string;
+  gender: number | undefined;
 
-  constructor() {
-    this.foo = "foo";
+  constructor(gender: number | undefined) {
+    this.gender = gender;
   }
 
   static randomMale() {
-    return new this();
+    return new this(Gimei.GENDER.male);
   }
 
   static female() {
