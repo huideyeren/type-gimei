@@ -49,6 +49,8 @@ export class Gimei {
 
 export class Name {
   gender: number | undefined;
+  first: FirstName;
+  last: LastName;
 
   constructor(gender: GENDER | undefined = undefined) {
     this.gender = gender;

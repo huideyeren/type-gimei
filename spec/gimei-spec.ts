@@ -29,9 +29,9 @@ describe('Gimei', () => {
   });
 
   describe('kanji', () => {
-    it('全角文字とスペースがあること', () => {
+    it('全角文字とスペースが返ること', () => {
       const gimei: Gimei = new Gimei();
-      // console.log(gimei.kanji());
+      console.log(gimei.kanji());
       // console.log(Gimei.Random.randomGender() == Gimei.GENDER.male);
       expect(true).to.equal(true);
     });
