@@ -27,4 +27,21 @@ describe('Gimei', () => {
       expect(name.isFemale()).to.equal(true);
     });
   });
+
+  describe('kanji', () => {
+    it('全角文字とスペースがあること', () => {
+      const gimei: Gimei = new Gimei();
+      console.log(gimei.kanji());
+
+      let Random = Gimei.Random;
+      let Gender = Gimei.GENDER;
+      console.log(Random);
+      let rand = new Random();
+      console.log(rand.nextInt(0, 1));
+      console.log(Gender.male);
+      console.log(Gender[0]);
+
+      expect(true).to.equal(true);
+    });
+  });
 });

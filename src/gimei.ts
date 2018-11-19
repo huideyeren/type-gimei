@@ -5,6 +5,8 @@ import * as path from 'path';
 export enum GENDER { male, female }
 
 export class Gimei {
+  name: Name;
+
   static get NAMES() {
     const names_yml = path.join(__dirname, 'data/names.yml');
     const names = yaml.safeLoad(fs.readFileSync(names_yml, 'utf8'));
@@ -15,10 +17,15 @@ export class Gimei {
     return GENDER;
   }
 
-  constructor() {
+  static get Random(){
+    return Random;
   }
 
-  static randomName(gender: number | undefined) {
+  constructor(gender: GENDER | undefined = undefined) {
+    this.name = new Name(gender);
+  }
+
+  static randomName(gender: GENDER | undefined) {
     return new Name(gender);
   }
 
@@ -29,12 +36,21 @@ export class Gimei {
   static randomFemale(): Name {
     return Name.randomFemale();
   }
+
+  kanji(): string {
+    return this.name.kanji();
+  }
+
+  toString(): string {
+    return this.name.kanji();
+  }
 }
+
 
 export class Name {
   gender: number | undefined;
 
-  constructor(gender: number | undefined) {
+  constructor(gender: GENDER | undefined = undefined) {
     this.gender = gender;
   }
 
@@ -44,6 +60,14 @@ export class Name {
 
   static randomFemale(): Name {
     return new this(Gimei.GENDER.female);
+  }
+
+  toString(): string {
+    return "uheheheh";
+  }
+
+  kanji(): string {
+    return "kanji dayo";
   }
 
   isMale(): boolean {
@@ -56,7 +80,11 @@ export class Name {
 }
 
 class FirstName {
+  gender: number | undefined;
 
+  constructor(gender: GENDER | undefined = undefined) {
+    this.gender = gender;
+  }
 }
 
 class LastName {
