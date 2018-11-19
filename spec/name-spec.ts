@@ -2,14 +2,17 @@ import { expect } from 'chai';
 import { Gimei } from "gimei";
 
 describe("sample", () => {
+  let gimei: Gimei;
+
+  before(() => {
+    gimei = Gimei.randomName(Gimei.GENDER.male);
+  });
   it("sample01", () => {
     expect(true).to.equal(true);
   });
 
   it("sample02", () => {
-    const gimei = Gimei.randomName(Gimei.GENDER.male);
-    // console.log(gimei);
-    // console.log(gimei.foo);
+    // console.log(this.gimei);
   });
 
   it("random", () => {
@@ -20,6 +23,10 @@ describe("sample", () => {
     //   // console.log(val);
     // }
   });
-
-
+  describe("aaaa", () => {
+    it("aaa01", () => {
+      expect(true).to.equal(true);
+    });
+  });
 });
+

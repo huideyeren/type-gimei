@@ -22,28 +22,36 @@ export class Gimei {
     return new Name(gender);
   }
 
-  static randomMale() {
+  static randomMale(): Name {
     return Name.randomMale();
   }
 
-  static randomFemale() {
-    return "";
+  static randomFemale(): Name {
+    return Name.randomFemale();
   }
 }
 
-class Name {
+export class Name {
   gender: number | undefined;
 
   constructor(gender: number | undefined) {
     this.gender = gender;
   }
 
-  static randomMale() {
+  static randomMale(): Name {
     return new this(Gimei.GENDER.male);
   }
 
-  static female() {
+  static randomFemale(): Name {
+    return new this(Gimei.GENDER.female);
+  }
 
+  isMale(): boolean {
+    return this.gender == Gimei.GENDER.male;
+  }
+
+  isFemale(): boolean {
+    return this.gender == Gimei.GENDER.female;
   }
 }
 
