@@ -17,7 +17,7 @@ export class Gimei {
     return GENDER;
   }
 
-  static get Random(){
+  static get Random() {
     return Random;
   }
 
@@ -83,7 +83,18 @@ class FirstName {
   gender: number | undefined;
 
   constructor(gender: GENDER | undefined = undefined) {
-    this.gender = gender;
+    // if (gender === undefined) {
+    //   let rand: Random = new Random();
+    //   switch (rand.nextInt(0, 1)) {
+    //     case 0:
+    //       gender = GENDER.male;
+    //       break;
+    //     case 1:
+    //       gender = GENDER.female;
+    //       break;
+    //   }
+    // }
+    this.gender = gender || Random.randomGender();
   }
 }
 
@@ -123,5 +134,23 @@ export class Random {
   nextInt(min: number, max: number) {
     const rand = Math.abs(this.next());
     return min + (rand % (max + 1 - min));
+  }
+
+  static randomGender(min: number | undefined = 0, max: number | undefined = 1): GENDER {
+    let rand: Random = new Random();
+    let index: number = rand.nextInt(min, max);
+    let gender: GENDER;
+    switch (index) {
+      case 0:
+        gender = GENDER.male;
+        break;
+      case 1:
+        gender = GENDER.female;
+        break;
+      default:
+        gender = GENDER.male;
+        break;
+    }
+    return gender;
   }
 }
