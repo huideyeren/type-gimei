@@ -2,7 +2,7 @@ import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export enum GENDER { male, female }
+export enum GENDER { male = "male", female = "female" }
 
 export class Gimei {
   name: Name;
@@ -48,12 +48,14 @@ export class Gimei {
 
 
 export class Name {
-  gender: number | undefined;
+  gender: GENDER | undefined;
   first: FirstName;
   last: LastName;
 
   constructor(gender: GENDER | undefined = undefined) {
     this.gender = gender;
+    this.first = new FirstName(gender);
+    this.last = new LastName();
   }
 
   static randomMale(): Name {
@@ -82,21 +84,14 @@ export class Name {
 }
 
 class FirstName {
-  gender: number | undefined;
+  gender: GENDER;
+  name: NameWord;
 
   constructor(gender: GENDER | undefined = undefined) {
-    // if (gender === undefined) {
-    //   let rand: Random = new Random();
-    //   switch (rand.nextInt(0, 1)) {
-    //     case 0:
-    //       gender = GENDER.male;
-    //       break;
-    //     case 1:
-    //       gender = GENDER.female;
-    //       break;
-    //   }
-    // }
     this.gender = gender || Random.randomGender();
+    let data_len: number = Gimei.NAMES['first_name'][this.gender].length - 1;
+    this.name = new NameWord(Gimei.NAMES['first_name'][this.gender][Random.random(0, data_len)]);
+    console.log(this.name);
   }
 }
 
@@ -105,7 +100,11 @@ class LastName {
 }
 
 class NameWord {
+  name: any;
 
+  constructor(name: any) {
+    this.name = name;
+  }
 }
 
 export class Random {
@@ -136,6 +135,11 @@ export class Random {
   nextInt(min: number, max: number) {
     const rand = Math.abs(this.next());
     return min + (rand % (max + 1 - min));
+  }
+
+  static random(min: number = 0, max: number = 1): number {
+    let rand: Random = new Random();
+    return rand.nextInt(min, max);
   }
 
   static randomGender(min: number | undefined = 0, max: number | undefined = 1): GENDER {
