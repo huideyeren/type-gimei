@@ -3,7 +3,7 @@ import { Gimei, Name } from 'gimei';
 
 describe('Gimei', () => {
   describe('isMale', () => {
-    let name: Name | undefined;
+    let name: Name;
     before(() => {
       name = Gimei.randomMale();
     });
@@ -16,7 +16,7 @@ describe('Gimei', () => {
   });
 
   describe('isFemale', () => {
-    let name: Name | undefined;
+    let name: Name;
     before(() => {
       name = Gimei.randomFemale();
     });
