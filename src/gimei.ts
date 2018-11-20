@@ -71,7 +71,7 @@ export class Name {
   }
 
   kanji(): string {
-    return "kanji dayo";
+    return `${this.last.kanji()} ${this.first.kanji()}`;
   }
 
   isMale(): boolean {
@@ -91,19 +91,47 @@ class FirstName {
     this.gender = gender || Random.randomGender();
     let data_len: number = Gimei.NAMES['first_name'][this.gender].length - 1;
     this.name = new NameWord(Gimei.NAMES['first_name'][this.gender][Random.random(0, data_len)]);
-    console.log(this.name);
+  }
+
+  kanji(): string {
+    return this.name.kanji();
   }
 }
 
 class LastName {
+  name: NameWord;
 
+  constructor() {
+    let data_len: number = Gimei.NAMES['last_name'].length - 1;
+    this.name = new NameWord(Gimei.NAMES['last_name'][Random.random(0, data_len)]);
+  }
+
+  kanji(): string {
+    return this.name.kanji();
+  }
 }
 
 class NameWord {
-  name: any;
+  name: Array<string>;
 
-  constructor(name: any) {
+  constructor(name: Array<string>) {
     this.name = name;
+  }
+
+  kanji(): string {
+    return this.name[0];
+  }
+
+  hiragana(): string {
+    return this.name[1];
+  }
+
+  katakana(): string {
+    return this.name[2];
+  }
+
+  toString(): string {
+    return this.kanji();
   }
 }
 
