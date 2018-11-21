@@ -49,4 +49,12 @@ describe('Gimei', () => {
       expect(gimei.hiragana()).to.match(/^[^\w]+\u0020[^\w]+$/);
     });
   });
+
+
+  describe('katakana', () => {
+    it('カタカナとスペースが返ること', () => {
+      const gimei: Gimei = new Gimei();
+      expect(gimei.katakana()).to.match(/^[^\w]+\u0020[^\w]+$/);
+    });
+  });
 });
