@@ -42,4 +42,11 @@ describe('Gimei', () => {
       expect(kanji).to.match(/^[^\w]+\u0020[^\w]+$/);
     });
   });
+
+  describe('hiragana', () => {
+    it('ひらがなとスペースが返ること', () => {
+      const gimei: Gimei = new Gimei();
+      expect(gimei.hiragana()).to.match(/^[^\w]+\u0020[^\w]+$/);
+    });
+  });
 });

@@ -41,6 +41,10 @@ export class Gimei {
     return this.name.kanji();
   }
 
+  hiragana(): string {
+    return this.name.hiragana();
+  }
+
   toString(): string {
     return this.name.kanji();
   }
@@ -74,6 +78,10 @@ export class Name {
     return `${this.last.kanji()} ${this.first.kanji()}`;
   }
 
+  hiragana(): string {
+    return `${this.last.hiragana()} ${this.first.hiragana()}`;
+  }
+
   isMale(): boolean {
     return this.gender == Gimei.GENDER.male;
   }
@@ -96,6 +104,10 @@ class FirstName {
   kanji(): string {
     return this.name.kanji();
   }
+
+  hiragana(): string {
+    return this.name.hiragana();
+  }
 }
 
 class LastName {
@@ -108,6 +120,10 @@ class LastName {
 
   kanji(): string {
     return this.name.kanji();
+  }
+
+  hiragana(): string {
+    return this.name.hiragana();
   }
 }
 
