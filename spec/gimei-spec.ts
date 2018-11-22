@@ -122,4 +122,17 @@ describe('Gimei', () => {
     });
   });
 
+  describe('romaji static', () => {
+    it('ローマ字とスペースが返ること', () => {
+      let n: string = Gimei.romaji();
+      expect(n).to.match(/^[A-Z][a-z]+\u0020[A-Z][a-z]+$/);
+    });
+  });
+
+  describe('romaji', () => {
+    it('ローマ字とスペースが返ること', () => {
+      let n: string = (new Gimei()).romaji();
+      expect(n).to.match(/^[A-Z][a-z]+\u0020[A-Z][a-z]+$/);
+    });
+  });
 });

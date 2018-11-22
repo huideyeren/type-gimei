@@ -1,6 +1,7 @@
 import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import * as path from 'path';
+const jconv = require('jaconv');
 
 export enum GENDER { male = "male", female = "female" }
 
@@ -49,6 +50,10 @@ export class Gimei {
     return this.createName().katakana();
   }
 
+  static romaji(): string {
+    return this.createName().romaji();
+  }
+
   static first(): FirstName {
     return this.createName().first;
   }
@@ -67,6 +72,10 @@ export class Gimei {
 
   katakana(): string {
     return this.name.katakana();
+  }
+
+  romaji(): string {
+    return this.name.romaji();
   }
 
   get first(): FirstName {
@@ -118,6 +127,10 @@ export class Name {
     return `${this.last.katakana()} ${this.first.katakana()}`;
   }
 
+  romaji(): string {
+    return `${this.last.romaji()} ${this.first.romaji()}`;
+  }
+
   isMale(): boolean {
     return this.gender == Gimei.GENDER.male;
   }
@@ -148,6 +161,10 @@ export class FirstName {
   katakana(): string {
     return this.name.katakana();
   }
+
+  romaji(): string {
+    return this.name.romaji();
+  }
 }
 
 export class LastName {
@@ -169,6 +186,10 @@ export class LastName {
   katakana(): string {
     return this.name.katakana();
   }
+
+  romaji(): string {
+    return this.name.romaji();
+  }
 }
 
 class NameWord {
@@ -188,6 +209,11 @@ class NameWord {
 
   katakana(): string {
     return this.name[2];
+  }
+
+  romaji(): string {
+    let n: string = jconv.toHebon(this.hiragana());
+    return n.charAt(0) + n.slice(1).toLowerCase();
   }
 
   toString(): string {
