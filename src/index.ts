@@ -1,1 +1,1 @@
-export { Gimei, Name } from './gimei';
+export { Gimei, Name, FirstName, LastName } from './gimei';

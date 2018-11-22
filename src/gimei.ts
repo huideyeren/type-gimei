@@ -37,6 +37,26 @@ export class Gimei {
     return Name.randomFemale();
   }
 
+  static createName(): Name {
+    return new Name();
+  }
+
+  static kanji(): string {
+    return this.createName().kanji();
+  }
+
+  static katakana(): string {
+    return this.createName().katakana();
+  }
+
+  static first(): FirstName {
+    return this.createName().first;
+  }
+
+  static last(): LastName {
+    return this.createName().last;
+  }
+
   kanji(): string {
     return this.name.kanji();
   }
@@ -47,6 +67,14 @@ export class Gimei {
 
   katakana(): string {
     return this.name.katakana();
+  }
+
+  get first(): FirstName {
+    return this.name.first;
+  }
+
+  get last(): LastName {
+    return this.name.last;
   }
 
   toString(): string {
@@ -99,7 +127,7 @@ export class Name {
   }
 }
 
-class FirstName {
+export class FirstName {
   gender: GENDER;
   name: NameWord;
 
@@ -122,7 +150,7 @@ class FirstName {
   }
 }
 
-class LastName {
+export class LastName {
   name: NameWord;
 
   constructor() {

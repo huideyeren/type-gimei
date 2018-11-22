@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Gimei, Name } from 'gimei';
+import { Gimei, Name, FirstName, LastName } from 'gimei';
 
 describe('Gimei', () => {
   describe('isMale', () => {
@@ -43,18 +43,83 @@ describe('Gimei', () => {
     });
   });
 
+  describe('toString()', () => {
+    it('全角文字とスペースが返ること', () => {
+      let s: string = (new Gimei()).toString();
+      expect(s).to.match(/^[^\w]+\u0020[^\w]+$/);
+    });
+  });
+
+  describe('kanji static', () => {
+    it('全角文字とスペースが返ること', () => {
+      expect(Gimei.kanji()).to.match(/^[^\w]+\u0020[^\w]+$/);
+    });
+  });
+
   describe('hiragana', () => {
     it('ひらがなとスペースが返ること', () => {
       const gimei: Gimei = new Gimei();
+      // 精度
       expect(gimei.hiragana()).to.match(/^[^\w]+\u0020[^\w]+$/);
     });
   });
 
-
   describe('katakana', () => {
     it('カタカナとスペースが返ること', () => {
       const gimei: Gimei = new Gimei();
+      // console.log(gimei.katakana());
       expect(gimei.katakana()).to.match(/^[^\w]+\u0020[^\w]+$/);
     });
   });
+
+  describe('katakana static', () => {
+    it('カタカナとスペースが返ること', () => {
+      expect(Gimei.katakana()).to.match(/^[^\w]+\u0020[^\w]+$/);
+    });
+  });
+
+  describe('name static', () => {
+    it('Name オブジェクトが返ること', () => {
+      // Gimei.name()とするとbuiltin関数にぶつかる
+      let n: Name = Gimei.createName();
+      expect(n instanceof Name).to.equal(true);
+    });
+  });
+
+  describe('name', () => {
+    it('Name オブジェクトが返ること', () => {
+      // Gimei.name()とするとbuiltin関数にぶつかる
+      let n: Name = (new Gimei()).name;
+      expect(n instanceof Name).to.equal(true);
+    });
+  });
+
+  describe('first static', () => {
+    it('FirstName オブジェクトが返ること', () => {
+      let n: FirstName = Gimei.first();
+      expect(n instanceof FirstName).to.equal(true);
+    });
+  });
+
+  describe('first', () => {
+    it('FirstName オブジェクトが返ること', () => {
+      let gimei: Gimei = new Gimei();
+      expect(gimei.first instanceof FirstName).to.equal(true);
+    });
+  });
+
+  describe('last static', () => {
+    it('LastName オブジェクトが返ること', () => {
+      let n: LastName = Gimei.last();
+      expect(n instanceof LastName).to.equal(true);
+    });
+  });
+
+  describe('last', () => {
+    it('Last オブジェクトが返ること', () => {
+      let gimei: Gimei = new Gimei();
+      expect(gimei.last instanceof LastName).to.equal(true);
+    });
+  });
+
 });
