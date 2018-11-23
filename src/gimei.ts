@@ -1,6 +1,7 @@
 import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import * as path from 'path';
+
 const jconv = require('jaconv');
 
 export enum GENDER { male = "male", female = "female" }
@@ -111,6 +112,22 @@ export class Name {
     return new this(Gimei.GENDER.female);
   }
 
+  static kanji(): string {
+    return (new this).kanji();
+  }
+
+  static hiragana(): string {
+    return (new this).hiragana();
+  }
+
+  static katakana(): string {
+    return (new this).katakana();
+  }
+
+  static romaji(): string {
+    return (new this).romaji();
+  }
+
   toString(): string {
     return "uheheheh";
   }
@@ -150,6 +167,14 @@ export class FirstName {
     this.name = new NameWord(Gimei.NAMES['first_name'][this.gender][Random.random(0, data_len)]);
   }
 
+  static createMale(): FirstName {
+    return (new this(GENDER.male));
+  }
+
+  static createFemale(): FirstName {
+    return (new this(GENDER.female));
+  }
+
   kanji(): string {
     return this.name.kanji();
   }
@@ -164,6 +189,18 @@ export class FirstName {
 
   romaji(): string {
     return this.name.romaji();
+  }
+
+  isMale(): boolean {
+    return this.gender === GENDER.male;
+  }
+
+  isFemale(): boolean {
+    return this.gender === GENDER.female;
+  }
+
+  toString(): string {
+    return this.name.toString();
   }
 }
 
@@ -189,6 +226,10 @@ export class LastName {
 
   romaji(): string {
     return this.name.romaji();
+  }
+
+  toString(): string {
+    return this.name.toString();
   }
 }
 
