@@ -10,6 +10,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "moduleResolution": "node",
     "stripInternal": false,
+    "declaration": true,
     "target": "es5",
     "outDir": "./.out",
     "lib": [
