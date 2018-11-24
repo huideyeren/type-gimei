@@ -271,7 +271,13 @@ export class Random {
   y: number;
   z: number;
 
-  constructor(seed: number = (new Date()).getTime()) {
+  constructor(seed?: number) {
+    if (seed === undefined) {
+      // see: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+      let max = 100;
+      let min = 0;
+      seed = Math.floor(Math.random() * (max - min)) + min;
+    }
     this.x = 123456789;
     this.y = 345677911;
     this.z = 567899233;
@@ -297,10 +303,13 @@ export class Random {
     return rand.nextInt(min, max);
   }
 
-  static randomGender(min: number | undefined = 0, max: number | undefined = 1): GENDER {
+  static randomGender(min: number = 0, max: number = 1): GENDER {
     let rand: Random = new Random();
     let index: number = rand.nextInt(min, max);
     let gender: GENDER;
+    // console.log(`${min}:${max}`);
+    // console.log(index);
+    // console.log("----");
     switch (index) {
       case 0:
         gender = GENDER.male;
