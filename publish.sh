@@ -43,6 +43,8 @@ select branch in "master" "stable"; do
     #git diff
     #read -p "Examine and correct CHANGELOG.md. [ENTER] to continue";
 
+    read -p "Examine version in dist/package/package.json [ENTER] to continue";
+
     git tag $version
 
     read -p "git tag updated to $version; [Enter] to continue";
@@ -51,7 +53,7 @@ select branch in "master" "stable"; do
 
   read -p "Ready to publish type-gimei@$version. [Enter] to continue";
   cd dist/package/
-  npm publish
+  npm publish --access public
   cd ../../
 
   read -p "Ready to push $branch to upstream. [Enter] to continue";
