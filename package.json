@@ -10,7 +10,7 @@
     "clean_dist_esm5": "shx rm -rf ./dist/esm5",
     "clean_dist_esm2015": "shx rm -rf ./dist/esm2015",
     "clean_dist_types": "shx rm -rf ./dist/typings",
-    "build_all": "npm-run-all clean_dist build_cjs build_esm5 build_esm2015 build_types",
+    "build_all": "npm-run-all clean_dist build_cjs build_esm5 build_esm2015 build_types generate_package",
     "build_cjs": "tsc -p ./tsconfig/tsconfig.cjs.json",
     "build_esm5": "tsc -p ./tsconfig/tsconfig.esm5.json",
     "build_esm2015": "tsc -p ./tsconfig/tsconfig.esm2015.json",
