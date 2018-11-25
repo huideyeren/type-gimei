@@ -28,6 +28,13 @@ describe('Gimei', () => {
     });
   });
 
+  describe('randomName', () => {
+    it('randomなNameを返すこと', () => {
+      let name: Name = Gimei.randomName();
+      expect(name.kanji()).to.match(/^[^\w]+\u0020[^\w]+$/);
+    });
+  });
+
   describe('kanji', () => {
     it('全角文字とスペースが返ること', () => {
       expect(" ".charCodeAt(0).toString(16)).to.equal("20");

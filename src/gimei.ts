@@ -27,7 +27,7 @@ export class Gimei {
     this.name = new Name(gender);
   }
 
-  static randomName(gender: GENDER | undefined) {
+  static randomName(gender: GENDER | undefined = undefined) {
     return new Name(gender);
   }
 
