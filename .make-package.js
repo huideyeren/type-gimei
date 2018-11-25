@@ -12,6 +12,7 @@ const ESM5_ROOT = ROOT + 'esm5/';
 const ESM2015_ROOT = ROOT + 'esm2015/';
 const TYPE_ROOT = ROOT + 'typings/';
 const PKG_ROOT = ROOT + 'package/';
+const DATA_ROOT = PKG_ROOT + 'data/';
 const CJS_PKG = PKG_ROOT + '';
 const ESM5_PKG = PKG_ROOT + '_esm5/';
 const ESM2015_PKG = PKG_ROOT + '_esm2015/';
@@ -63,6 +64,10 @@ let rootPackageJson = Object.assign({}, pkg, {
 
 // dist/package
 mkdirp.sync(PKG_ROOT);
+
+// dist/package/data
+mkdirp.sync(DATA_ROOT);
+fs.copySync('src/data/', DATA_ROOT);
 
 // src/ -> dist/package/src
 copySources('src/', SRC_ROOT_PKG);
