@@ -29,6 +29,10 @@
   ],
   "author": "abcb2",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abcb2/type-gimei/issues"
+  },
+  "homepage": "https://github.com/abcb2/type-gimei",
   "dependencies": {
     "@types/js-yaml": "^3.11.2",
     "@types/node": "^10.12.7",
