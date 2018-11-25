@@ -37,11 +37,11 @@ select branch in "master" "stable"; do
 
     echo "Deleted tag because it's wrong, no worries, we'll tag again";
 
-    echo "Generating CHANGELOG.md"
-    npm run generate_changelog
+    #echo "Generating CHANGELOG.md"
+    #npm run generate_changelog
 
-    git diff
-    read -p "Examine and correct CHANGELOG.md. [ENTER] to continue";
+    #git diff
+    #read -p "Examine and correct CHANGELOG.md. [ENTER] to continue";
 
     git tag $version
 
