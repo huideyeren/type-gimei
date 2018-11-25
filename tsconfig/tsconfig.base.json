@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "baseUrl": "../src",
+    "sourceRoot": "../src",
+    "paths": {
+      "type-gimei": [
+        "./"
+      ],
+      "type-gimei/*": [
+        "./*"
+      ]
+    }
+  },
+  "files": [
+    // entry-points
+    "../src/index.ts"
+  ]
+}
