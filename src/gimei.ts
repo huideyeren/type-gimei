@@ -1,6 +1,7 @@
-import * as yaml from 'js-yaml';
-import * as fs from 'fs';
-import * as path from 'path';
+// import * as yaml from 'js-yaml';
+import { NAMES_DATA } from "./names_data";
+// import * as fs from 'fs';
+// import * as path from 'path';
 
 const jconv = require('jaconv');
 
@@ -9,10 +10,14 @@ export enum GENDER { male = "male", female = "female" }
 export class Gimei {
   name: Name;
 
+  // static get NAMES() {
+  //   const names_yml = path.join(__dirname, 'data/names.yml');
+  //   const names = yaml.safeLoad(fs.readFileSync(names_yml, 'utf8'));
+  //   return names;
+  // }
+
   static get NAMES() {
-    const names_yml = path.join(__dirname, 'data/names.yml');
-    const names = yaml.safeLoad(fs.readFileSync(names_yml, 'utf8'));
-    return names;
+    return NAMES_DATA;
   }
 
   static get GENDER() {
