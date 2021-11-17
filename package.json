@@ -28,11 +28,20 @@
     "日本語"
   ],
   "author": "abcb2",
+  "contributors": [
+    {
+      "name": "huideyeren"
+    }
+  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/abcb2/type-gimei/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huideyeren/type-gimei.git"
   },
-  "homepage": "https://github.com/abcb2/type-gimei",
+  "bugs": {
+    "url": "https://github.com/huideyeren/type-gimei/issues"
+  },
+  "homepage": "https://github.com/huideyeren/type-gimei",
   "dependencies": {
     "@types/js-yaml": "^3.12.6",
     "@types/node": "^10.17.55",
