@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Gimei, Name, FirstName, LastName } from 'gimei';
+import { Gimei, Name, FirstName, LastName, Address, Prefecture, City, Town } from 'gimei';
 
 describe('Gimei', () => {
   describe('isMale', () => {
@@ -32,6 +32,13 @@ describe('Gimei', () => {
     it('randomなNameを返すこと', () => {
       let name: Name = Gimei.randomName();
       expect(name.kanji()).to.match(/^[^\w]+\u0020[^\w]+$/);
+    });
+  });
+
+  describe('randomAddress', () => {
+    it('randomなAddressを返すこと', () => {
+      let address: Address = Gimei.randomAddress();
+      expect(address.kanji()).to.match(/^[^\w]+$/);
     });
   });
 
@@ -101,6 +108,22 @@ describe('Gimei', () => {
     });
   });
 
+  describe('address static', () => {
+    it('Address オブジェクトが返ること', () => {
+      // Gimei.address()とするとbuiltin関数にぶつかる
+      let a: Address = Gimei.createAddress();
+      expect(a instanceof Address).to.equal(true);
+    });
+  });
+
+  describe('address', () => {
+    it('Address オブジェクトが返ること', () => {
+      // Gimei.address()とするとbuiltin関数にぶつかる
+      let a: Address = (new Gimei()).address;
+      expect(a instanceof Address).to.equal(true);
+    });
+  });
+
   describe('first static', () => {
     it('FirstName オブジェクトが返ること', () => {
       let n: FirstName = Gimei.first();
@@ -142,4 +165,47 @@ describe('Gimei', () => {
       expect(n).to.match(/^[A-Z][a-z]+\u0020[A-Z][a-z]+$/);
     });
   });
+  describe('prefecture static', () => {
+    it('Prefecture オブジェクトが返ること', () => {
+      let p: Prefecture = Gimei.prefecture();
+      expect(p instanceof Prefecture).to.equal(true);
+    });
+  });
+  
+  describe('prefecture', () => {
+    it('Prefecture オブジェクトが返ること', () => {
+      let gimei: Gimei = new Gimei();
+      expect(gimei.prefecture instanceof Prefecture).to.equal(true);
+    });
+  });
+  
+  describe('city static', () => {
+    it('Prefecture オブジェクトが返ること', () => {
+      let c: City = Gimei.city();
+      expect(c instanceof City).to.equal(true);
+    });
+  });
+  
+  describe('city', () => {
+    it('City オブジェクトが返ること', () => {
+      let gimei: Gimei = new Gimei();
+      expect(gimei.city instanceof City).to.equal(true);
+    });
+  });
+  
+  describe('town static', () => {
+    it('Town オブジェクトが返ること', () => {
+      let t: Town = Gimei.town();
+      expect(t instanceof Town).to.equal(true);
+    });
+  });
+  
+  describe('town', () => {
+    it('Town オブジェクトが返ること', () => {
+      let gimei: Gimei = new Gimei();
+      expect(gimei.town instanceof Town).to.equal(true);
+    });
+  });
 });
+
+
