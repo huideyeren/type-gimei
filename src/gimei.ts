@@ -1,4 +1,5 @@
 // import * as yaml from 'js-yaml';
+import { ADDRESSES_DATA } from "./addresses_data";
 import { NAMES_DATA } from "./names_data";
 // import * as fs from 'fs';
 // import * as path from 'path';
@@ -9,6 +10,7 @@ export enum GENDER { male = "male", female = "female" }
 
 export class Gimei {
   name: Name;
+  address: Address;
 
   // static get NAMES() {
   //   const names_yml = path.join(__dirname, 'data/names.yml');
@@ -18,6 +20,10 @@ export class Gimei {
 
   static get NAMES() {
     return NAMES_DATA;
+  }
+
+  static get ADDRESSES() {
+    return ADDRESSES_DATA;
   }
 
   static get GENDER() {
@@ -30,10 +36,15 @@ export class Gimei {
 
   constructor(gender: GENDER | undefined = undefined) {
     this.name = new Name(gender);
+    this.address = new Address();
   }
 
   static randomName(gender: GENDER | undefined = undefined) {
     return new Name(gender);
+  }
+
+  static randomAddress() {
+    return new Address();
   }
 
   static randomMale(): Name {
@@ -46,6 +57,10 @@ export class Gimei {
 
   static createName(): Name {
     return new Name();
+  }
+
+  static createAddress(): Address {
+    return new Address();
   }
 
   static kanji(): string {
@@ -66,6 +81,18 @@ export class Gimei {
 
   static last(): LastName {
     return this.createName().last;
+  }
+
+  static prefecture(): Prefecture {
+    return this.createAddress().prefecture;
+  }
+
+  static city(): City {
+    return this.createAddress().city;
+  }
+
+  static town(): Town {
+    return this.createAddress().town;
   }
 
   kanji(): string {
@@ -90,6 +117,18 @@ export class Gimei {
 
   get last(): LastName {
     return this.name.last;
+  }
+
+  get prefecture(): Prefecture {
+    return this.address.prefecture;
+  }
+
+  get city(): City {
+    return this.address.city;
+  }
+
+  get town(): Town {
+    return this.address.town;
   }
 
   toString(): string {
@@ -255,6 +294,170 @@ class NameWord {
 
   katakana(): string {
     return this.name[2];
+  }
+
+  romaji(): string {
+    let n: string = jconv.toHebon(this.hiragana());
+    return n.charAt(0) + n.slice(1).toLowerCase();
+  }
+
+  toString(): string {
+    return this.kanji();
+  }
+}
+
+export class Address {
+  prefecture: Prefecture;
+  city: City;
+  town: Town;
+
+  constructor() {
+    this.prefecture = new Prefecture();
+    this.city = new City();
+    this.town = new Town();
+  }
+
+  static kanji(): string {
+    return (new this).kanji();
+  }
+
+  static hiragana(): string {
+    return (new this).hiragana();
+  }
+
+  static katakana(): string {
+    return (new this).katakana();
+  }
+
+  static romaji(): string {
+    return (new this).romaji();
+  }
+
+  toString(): string {
+    return "uheheheh";
+  }
+
+  kanji(): string {
+    return `${this.prefecture.kanji()}${this.city.kanji()}${this.town.kanji()}`;
+  }
+
+  hiragana(): string {
+    return `${this.prefecture.hiragana()}${this.city.hiragana()}${this.town.hiragana()}`;
+  }
+
+  katakana(): string {
+    return `${this.prefecture.katakana()}${this.city.katakana()}${this.town.katakana()}`;
+  }
+
+  romaji(): string {
+    return `${this.prefecture.romaji()} ${this.city.romaji()} ${this.town.romaji()}`;
+  }
+}
+
+export class Prefecture {
+  address: AddressWord;
+
+  constructor() {
+    let data_len: number = Gimei.ADDRESSES['prefecture'].length - 1;
+    this.address = new AddressWord(Gimei.ADDRESSES['prefecture'][Random.random(0, data_len)]);
+  }
+
+  kanji(): string {
+    return this.address.kanji();
+  }
+
+  hiragana(): string {
+    return this.address.hiragana();
+  }
+
+  katakana(): string {
+    return this.address.katakana();
+  }
+
+  romaji(): string {
+    return this.address.romaji();
+  }
+
+  toString(): string {
+    return this.address.toString();
+  }
+}
+
+export class City {
+  address: AddressWord;
+
+  constructor() {
+    let data_len: number = Gimei.ADDRESSES['city'].length - 1;
+    this.address = new AddressWord(Gimei.ADDRESSES['city'][Random.random(0, data_len)]);
+  }
+
+  kanji(): string {
+    return this.address.kanji();
+  }
+
+  hiragana(): string {
+    return this.address.hiragana();
+  }
+
+  katakana(): string {
+    return this.address.katakana();
+  }
+
+  romaji(): string {
+    return this.address.romaji();
+  }
+
+  toString(): string {
+    return this.address.toString();
+  }
+}
+
+export class Town {
+  address: AddressWord;
+
+  constructor() {
+    let data_len: number = Gimei.ADDRESSES['town'].length - 1;
+    this.address = new AddressWord(Gimei.ADDRESSES['town'][Random.random(0, data_len)]);
+  }
+
+  kanji(): string {
+    return this.address.kanji();
+  }
+
+  hiragana(): string {
+    return this.address.hiragana();
+  }
+
+  katakana(): string {
+    return this.address.katakana();
+  }
+
+  romaji(): string {
+    return this.address.romaji();
+  }
+
+  toString(): string {
+    return this.address.toString();
+  }
+}
+
+class AddressWord {
+  address: Array<string>;
+
+  constructor(address: Array<string>) {
+    this.address = address;
+  }
+
+  kanji(): string {
+    return this.address[0];
+  }
+
+  hiragana(): string {
+    return this.address[1];
+  }
+
+  katakana(): string {
+    return this.address[2];
   }
 
   romaji(): string {
