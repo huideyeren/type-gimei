@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env TS_NODE_PROJECT=spec/tsconfig.json mocha --opts spec/support/default.opts spec/*-spec.ts",
-    "clean_dist": "shx rm -rf ./dist",ｎ
+    "clean_dist": "shx rm -rf ./dist",
     "clean_dist_cjs": "shx rm -rf ./dist/cjs",
     "clean_dist_esm5": "shx rm -rf ./dist/esm5",
     "clean_dist_esm2015": "shx rm -rf ./dist/esm2015",

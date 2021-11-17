@@ -13,7 +13,7 @@ rubyのgimeiにインスパイアされており、インターフェースを�
 ## TypeScript
 
 ```typescript
-import { Gimei, Name } from 'type-gimei';
+import { Gimei, Name } from '@huideyeren/type-gimei';
 
 for (let i = 0; i < 10; i++) {
   const name: Name = Gimei.randomName();
@@ -33,7 +33,7 @@ for (let i = 0; i < 10; i++) {
 ## ES6, ES5
 
 ```javascript
-const {Gimei} = require('type-gimei');
+const {Gimei} = require('@huideyeren/type-gimei');
 for (let i = 0; i < 10; i++) {
   let name = Gimei.randomFemale();
   console.log(name.hiragana());
@@ -44,7 +44,7 @@ for (let i = 0; i < 10; i++) {
 ```
 
 ```javascript
-var gimei = require('type-gimei').Gimei;
+var gimei = require('@huideyeren/type-gimei').Gimei;
 
 var name = gimei.randomName();
 var hiragana = name.hiragana();
