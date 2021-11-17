@@ -13,7 +13,7 @@ rubyのgimeiにインスパイアされており、インターフェースを�
 ## TypeScript
 
 ```typescript
-import { Gimei, Name } from '@huideyeren/type-gimei';
+import { Gimei, Name, Address } from '@huideyeren/type-gimei';
 
 for (let i = 0; i < 10; i++) {
   const name: Name = Gimei.randomName();
@@ -21,11 +21,20 @@ for (let i = 0; i < 10; i++) {
   const romaji: string = name.romaji();
   const kanji: string = name.kanji();
   const katakana: string = name.katakana();
+  const address: Address = Gimei.randomAddress();
+  const address_hiragana: string = address.hiragana();
+  const address_romaji: string = address.romaji();
+  const address_kanji: string = address.kanji();
+  const address_katakana: string = address.katakana();
   console.log(`
     ${hiragana}
     ${romaji}
     ${kanji}
     ${katakana}
+    ${address_hiragana}
+    ${address_romaji}
+    ${address_kanji}
+    ${address_katakana}
   `);
 }
 ```
@@ -36,9 +45,14 @@ for (let i = 0; i < 10; i++) {
 const {Gimei} = require('@huideyeren/type-gimei');
 for (let i = 0; i < 10; i++) {
   let name = Gimei.randomFemale();
+  let address = Gimei.randomAddress();
   console.log(name.hiragana());
   console.log(name.kanji());
   console.log(name.romaji());
+  console.log('----');
+  console.log(address.prefecture());
+  console.log(address.city());
+  console.log(address.town());
   console.log('----');
 }
 ```
@@ -52,8 +66,18 @@ var romaji = name.romaji();
 var kanji = name.kanji();
 var katakana = name.katakana();
 
+var address = gimei.randomAddress();
+var address_hiragana = address.hiragana();
+var address_romaji = address.romaji();
+var address_kanji = address.kanji();
+var address_katakana = address.katakana();
+
 console.log(hiragana);
 console.log(romaji);
 console.log(kanji);
 console.log(katakana);
+console.log(address_hiragana);
+console.log(address_romaji);
+console.log(address_kanji);
+console.log(address_katakana);
 ```
