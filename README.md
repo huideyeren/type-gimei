@@ -48,9 +48,9 @@ for (let i = 0; i < 10; i++) {
   console.log(name.kanji());
   console.log(name.romaji());
   console.log('----');
-  console.log(address.prefecture());
-  console.log(address.city());
-  console.log(address.town());
+  console.log(address.hiragana());
+  console.log(address.kanji());
+  console.log(address.romaji());
   console.log('----');
 }
 ```
