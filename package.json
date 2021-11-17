@@ -1,6 +1,6 @@
 {
   "name": "@huideyeren/type-gimei",
-  "version": "0.2.5",
+  "version": "1.0.0",
   "description": "type-gimei generates Japanese Language random data.",
   "main": "index.js",
   "scripts": {
