@@ -11,7 +11,7 @@ rubyのgimeiにインスパイアされており、インターフェースを�
 ## TypeScript
 
 ```typescript
-import { Gimei, Name, Address } from '@huideyeren/type-gimei';
+import { Gimei, Name, Address } from 'type-gimei';
 
 for (let i = 0; i < 10; i++) {
   const name: Name = Gimei.randomName();
@@ -40,7 +40,7 @@ for (let i = 0; i < 10; i++) {
 ## ES6, ES5
 
 ```javascript
-const {Gimei} = require('@huideyeren/type-gimei');
+const {Gimei} = require('type-gimei');
 for (let i = 0; i < 10; i++) {
   let name = Gimei.randomFemale();
   let address = Gimei.randomAddress();
@@ -56,7 +56,7 @@ for (let i = 0; i < 10; i++) {
 ```
 
 ```javascript
-var gimei = require('@huideyeren/type-gimei').Gimei;
+var gimei = require('type-gimei').Gimei;
 
 var name = gimei.randomName();
 var hiragana = name.hiragana();
@@ -79,3 +79,7 @@ console.log(address_romaji);
 console.log(address_kanji);
 console.log(address_katakana);
 ```
+
+# Contributors
+
+- [Iosif Takakura (huideyeren)](https://github.com/huideyeren)
