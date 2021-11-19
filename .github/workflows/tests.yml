@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Tests
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Run tests.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
+        with:
+          check-latest: true
+      
+      - name: Install dependencies.
+        run: 'npm i -D'
+      
+      - name: Run tests.
+        run: 'npm run test'

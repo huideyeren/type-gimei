@@ -47,14 +47,14 @@ describe("Name", () => {
     it("ひらがなとスペースが返ること", () => {
       let s: string = Name.hiragana();
       // console.log(s);
-      expect(s).to.match(/^[^\w]+\u0020+[^\w]+$/);
+      expect(s).to.match(/^[ぁ-ん]+\u0020+[ぁ-ん]+$/);
     });
   });
 
   describe("katakana static", () => {
     it("カタカナとスペースが返ること", () => {
       let s: string = Name.katakana();
-      expect(s).to.match(/^[^\w]+\u0020+[^\w]+$/);
+      expect(s).to.match(/^[ァ-ヴ]+\u0020+[ァ-ヴ]+$/);
     });
   });
 
@@ -78,7 +78,7 @@ describe("Name", () => {
     it("ひらがなとスペースが返ること", () => {
       let s: string = (new Name).hiragana();
       // console.log(s);
-      expect(s).to.match(/^[^\w]+\u0020+[^\w]+$/);
+      expect(s).to.match(/^[ぁ-ん]+\u0020+[ぁ-ん]+$/);
     });
   });
 
@@ -86,7 +86,7 @@ describe("Name", () => {
     it("カタカナとスペースが返ること", () => {
       let s: string = (new Name).katakana();
       // console.log(s);
-      expect(s).to.match(/^[^\w]+\u0020+[^\w]+$/);
+      expect(s).to.match(/^[ァ-ヴ]+\u0020+[ァ-ヴ]+$/);
     });
   });
 
@@ -158,7 +158,7 @@ describe("FirstName", () => {
     it("ひらがなが返ること", () => {
       let s: string = (new FirstName).hiragana();
       // console.log(s);
-      expect(s).to.match(/^[^\w]+$/);
+      expect(s).to.match(/^[ぁ-ん]+$/);
     });
   });
 
@@ -166,7 +166,7 @@ describe("FirstName", () => {
     it("カタカナが返ること", () => {
       let s: string = (new FirstName).katakana();
       // console.log(s);
-      expect(s).to.match(/^[^\w]+$/);
+      expect(s).to.match(/^[ァ-ヴ]+$/);
     });
   });
 
@@ -200,7 +200,7 @@ describe("LastName", () => {
     it("ひらがなが返ること", () => {
       let s: string = (new LastName()).hiragana();
       // console.log(s);
-      expect(s).to.match(/^[^\w]+$/);
+      expect(s).to.match(/^[ぁ-ん]+$/);
     });
   });
 
@@ -208,7 +208,7 @@ describe("LastName", () => {
     it("カタカナが返ること", () => {
       let s: string = (new LastName).katakana();
       // console.log(s);
-      expect(s).to.match(/^[^\w]+$/);
+      expect(s).to.match(/^[ァ-ヴ]+$/);
     });
   });
 
