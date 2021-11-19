@@ -1,5 +1,5 @@
 {
-  "name": "type-gimei",
+  "name": "@huideyeren/type-gimei",
   "version": "1.0.0",
   "description": "type-gimei generates Japanese Language random data.",
   "main": "index.js",
